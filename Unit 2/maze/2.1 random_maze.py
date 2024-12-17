@@ -136,12 +136,18 @@ def randomFill():
 
 def main():
     
+    # Get Maze Size from user
     userInput()
     
+    # 1. Initialize a Maze with all `1` and a starting position `S`
+    # 2. Move to break the walls `1`
     initializeMaze(rowN, colN)
 
+    # Random break some walls:
+    #   randomly change `1` to `0`
     randomFill()
 
+    # Save Maze to a text file
     writeMatrix(maze)
 
 #Start the program
