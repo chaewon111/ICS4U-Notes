@@ -1,0 +1,304 @@
+########################################
+# 1.1 Recursion
+## Breaking down calculation, calculate current situation and pass the un-calculated part to the next recursion all.
+
+```
+def recursion_method(n):
+    # Base condition
+    ## When to End (Return)
+
+    # Recursive Call
+    ## Breaking down calculation / problem.
+```
+
+## Review Example:
+- Fibonacci()
+- Factorial()
+
+
+########################################
+# 1.2 Two Dimensinoal (2-D) List
+
+## Lists in a list ####################
+
+```
+lst =  [ [1,2,3,4,5],
+           [6,7,8,9,10]]
+
+lst[n] # gives (all items) n-th row
+lst[n][c] # gives c-th item at n-th row
+```
+
+## Iteration through 2-D list ####################
+```
+for r in range(0, len(lst)):
+    for c in range(0, len(lst[r])):
+        lst[r][c] # gives c-th item at r-th row
+```
+
+########################################
+# 1.3 File Input and Output
+
+## Read File Example ####################
+``` 
+# Open the file for reading
+## r: read; w: write; a: append
+file = open("data.txt","rw")
+
+# Make an empty list to store the data
+lst = []
+
+# Read until a blank line is found
+# Only append when there is data found
+while True:
+    line = file.readline()
+    if line == "":
+        # Empty line occurred implies reaching end of the file
+        break
+    else:
+        lst.append(line.rstrip("\n")) # .rstip("\n") removes the change-line at the end of each line
+
+# Done reading so close the file
+file.close()
+```
+
+## Write File Example ####################
+```
+# Open the data
+file = open("dataOUT.txt", "w")
+
+# Data to Write from the list
+x = ["Paul", "Jim", "Kevin", "Kate", "Sidney"]
+y = [5,15,30,17,20]
+
+# Loop through the data and write it the file [name],[number]
+for i in range(0,len(x)):
+  line = x[i] + " " + str(y[i]) + "\n"
+  file.write(line)
+
+#Close File
+file.close()
+```
+
+
+########################################
+# 2.1 Searching Algorithms
+
+## Sequential Search ####################
+### complexity: O(n)
+- Start with the first value in the list
+- Compare it to the target value
+    - If its the same, return current index
+    - If its not the same then move to the next value in the list
+** If the target appeared multiple times, then this algorithm would only return the location of the first occurrence of the target
+
+## Binary Search Algorithm ####################
+### complexity: O(log(n))
+The Binary Search is a divide and conquer technique:
+- Examine the value in the middle of the list
+    - If the target is smaller than the value in the middle then discard the right half of the list (No point searching it because it isn’t there)
+    - If the target is larger than the value in the middle then discard the left half of the list (no point searching it because it isn’t there)
+- Repeat this process until eventually the only value left to look at will be in the middle of the list and that must be the target.  If eventually that middle value isn’t the target, then target isn’t in the list
+** Key point with this algorithm, is that the list MUST be already sorted
+
+## 2-D Maze Search ####################
+### complexity: O(n^2)
+Think about sequential search:
+- looping through all columns in each row
+- if found, return the value or the col-row index
+
+
+########################################
+# 2.2 Sorting Algorithms
+visite: https://visualgo.net/en/sorting?slide=1
+
+## Selection Sort ####################
+### complexity: O(n^2)
+- First find the smallest element in the list and swap it with the first element
+- Now look for the next smallest value in the array and swap it with the second element
+- Now look for the third smallest value in the list and swap it with the third element
+- Repeat the process over and over until the list has been sorted
+
+## Bubble Sort ####################
+### complexity: O(n^2)
+- Compare the first two elements in the list and swap if they are not in the correct order
+- Compare the next two elements in the list and swap if they are not in the correct order
+- Continue this process for all the adjacent elements in the list
+- By the time you have cycled through all the values in the list once, the largest value will have been moved to the end of the list and is in the correct position
+- Now repeat this “Bubbling” process again using only the still unsorted values in the list
+- After every iteration of the list, you will sort one more number into its correct position.  
+
+## Insertion Sort ####################
+### complexity: O(n^2)
+- To start, assume the first element is already sorted in its correct position (even if its not)
+- Take the 2nd element out, and find its spot in the already sorted list (in this case the sorted list is only the first element, so compare and swap if necessary)
+- Now the two numbers at the start of the list are sorted, take the 3rd element out and find its correct spot in the sorted list
+- Now three numbers are sorted at the start of the list so take the 4th element out and find its correct spot in the sorted list
+- Repeat until there are no more elements to remove and insert in the correct position.  
+
+## Quick Sort [optional] ####################
+### complexity: O(n^2)
+
+## Python Built-in Sort: sort() ####################
+### complexity: O(n*log(n))
+
+
+########################################
+# Unit 3: Object Oriented Programming (OOP)
+
+## Structure of a Python Class ####################
+## Constructors
+- These define how a programmer can create the object from the main program
+- They usually set the value of the attributes to some initial value
+
+## Accessor Functions
+- Accessors retrieve the information stored in the attributes (Sometimes they are called “getters”)
+
+## Mutator Functions
+- Mutators modify the information stored in the attributes (Sometimes they are called “setters”)
+
+## Behaviour Functions
+- Carry out the required behaviour for the object
+
+## Helper Functions
+- Background functions that assist in carrying out the behaviours
+- Some other programming languages consider theses private functions.  Not meant to be used by the instances themselves within the main program.  
+- The values that each instance attribute has at any point in the program are known as the **state** of the instance
+
+## Python Class Template ####################
+```
+class Name:
+
+    # Class Variable
+    ZERO = 0
+    INTEREST_RATE = 0.05
+    NUM_USER = 0
+
+    # Constructor ##########
+    def __init__(self, d, n):
+        self.denominator = d
+        self.numerator = n
+
+        ClassName.NUM_USER += 1
+
+    # Behaviour Methods ##########
+    ## Create whatever you can imagine!
+
+    # Printing Object ##########
+    ## Readable Text for Client/Customer (readable)
+    def __str__(self):
+        return self.d + ' / ' + self.n #Printable String
+
+    ## Object Format for Developer/Debug (unambiguous)
+    def _repr__(self):
+        return 'ClassName(' + self.d + self.n + ')' #Printable String
+
+    # Teach how to Add/Subtract/Multiply/Divide ##########
+    ## see: https://www.geeksforgeeks.org/emulating-numeric-types-in-python/
+    def __add__(self, other):
+        new_n = (self.n * other.d) + (self.d * other.n)
+        new_d = self.d * other.d
+        return Fraction(new_n, new_d)
+
+    def __sub__(self, other):
+        return None # TODO:
+
+    def __mul__(self, other):
+        return None # TODO:
+
+    def __truediv__(self, other): ## / (True division)
+        return None # TODO:
+
+    def __floordiv__(self, other): ## // (Floor division)
+        return None # TODO:
+
+    def __len__(self): ## usage: len(ObjectName)
+        return None # TODO:
+
+    # Usage of Decorators ####################
+
+    # Getter Method ##########
+    # no need to add () for method!
+    
+    # usage: ObjectName.email
+    @property
+    def email(self):
+        return self.first + self.last + '@email.com'
+
+    # usage: ObjectName.fullname
+    @property
+    def fullname(self):
+        return self.first + ' ' + self.last
+
+    # Setter Method ##########
+    # usage: ObjectName.fullname = "Abcd Efgh"
+    @fullname.setter
+    def fullname(self, name):
+        first, last = name.split(' ')
+        self.first = first
+        self.last = last 
+    
+    # usage: del ObjectName.fullname
+    @fullname.deleter
+    def fullname(self, name):
+        print('Delete Name!')
+        self.first = None
+        self.last = None
+
+    # Class methods ####################
+    @classmethod
+    def set_raise_numerator(cls, amount):
+        cls.numerator += amount # numerator from all objects will be increased by amount.
+
+    ## This method act as an Alternative constructor.
+    ## This example will construct a Fraction from a string in format of 'n/d'
+    @classmethod
+    def from_string(cls, input_str):
+        n, d = input_str.split('/')
+        return cls(n, d)
+
+    # Static Method ####################
+    ## no need to create an object.
+    ## can be directly used by:  ClassName.is_workday(day)
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or if day.weekday() == 6:
+            return False
+        return True
+
+# Main Program Would start down Here ####################
+def main():
+
+    #Solve a problem
+
+main()
+```
+
+
+## Fraction Object Example ####################
+## Attributes:
+- Numerator
+- Denominator
+
+## Behaviors:
+- Add, Subtract, Multiply, Divide
+- Convert to Decimal Equivalent
+- Convert to Mixed Fraction
+- Convert to lowest terms
+- Display in form n/d
+
+## Phone Book Object Example ####################
+Suppose you wanted to make a new data type to represent a phone book
+
+## Attributes:
+- First Name
+- Last Name
+- Phone #
+- Address
+
+## Behaviours
+- Add or Delete Person
+- Change info
+- LookUp Info
+- Sort Information
+- Display Information
