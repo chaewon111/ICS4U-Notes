@@ -60,8 +60,8 @@ class TicTacToe():
 				self._draw_char(x,y,self.player)
 				self._game_check()
 				self._change_player()
-		except:
-			print("Click inside the table only")
+		except Exception as e:
+			print("Click inside the table only", e)
 			print(self.table)
 
 
