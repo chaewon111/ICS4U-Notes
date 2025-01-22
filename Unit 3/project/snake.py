@@ -1,7 +1,9 @@
 from typing import final
+import random
 
 class Snake:
 
+    SEED = 31415926535897932384
     ATTRIBUTE_RESTRICTION = 5
     MATRIX_SIZE = (10, 10)
 
@@ -12,7 +14,8 @@ class Snake:
         """
         return Snake.MATRIX_SIZE
 
-    def __init__(self, start_x, start_y, length, color, name, attack, hp):
+    def __init__(self, start_x : int, start_y : int, length : int, color : tuple[int, int, int], 
+                 name : str, attack : int, hp : int):
         """
         Initialize the Snake object.
 
@@ -22,6 +25,8 @@ class Snake:
         :param color: The color of the snake (can be used for visualization later).
         :param name: The name of the snake (can be used for visualization later).
         """
+        random.seed(Snake.SEED)
+
         if length + attack + hp > Snake.ATTRIBUTE_RESTRICTION:
             self.body_positions = [(None, None, None)]
         else:
@@ -32,8 +37,14 @@ class Snake:
         self.attack = attack
         self.hp = hp
 
+    def detect(self):
+        """
+        Do nothing. You could implement your own Detect for your move()
+        """
+        pass
+
     @property
-    def qualification(self):
+    def qualification(self) -> bool:
         """
         Check if the snake is qualified to play the game.
 
@@ -42,7 +53,7 @@ class Snake:
         return self.body_positions[0] != (None, None, None)
 
     @final # We'll fire you if you override this method.
-    def move(self, direction):
+    def move(self, direction : list):
         """
         Move the snake in a specified direction. return False if the snake is disqualified or dead.
 
@@ -63,10 +74,8 @@ class Snake:
 
         return True
 
-
-
     @final # We'll fire you if you override this method.
-    def grow(self):
+    def grow(self) -> None:
         """
         Increase the length of the snake by 1.
         """
@@ -74,14 +83,14 @@ class Snake:
         # No need to modify body_positions as the tail will naturally grow with subsequent moves
 
     @final # We'll fire you if you override this method.
-    def checkDead(self):
+    def checkDead(self) -> bool:
         """
         Check if the snake is dead.
         """
         return self.length < 1
 
     @final # We'll fire you if you override this method.
-    def check_collision(self):
+    def check_collision(self) -> bool:
         """
         Check for collisions with the boundaries or itself.
 
@@ -109,46 +118,3 @@ class Snake:
         String representation of the snake for debugging.
         """
         return f"Snake(length={self.length}, body_positions={self.body_positions})"
-
-
-class MySnake(Snake):
-    def __init__(self):
-        # TODO: Construct your snake
-        # start_x, start_y should be your assigned starting position.
-        # length + attack + hp should be added up to a maximum of 10; otherwise, the snake will be disqualified and removed from the game.
-        super().__init__(10, 10, 1, 'red', 'Hi', 1, 1)
-
-    def move(self,direction):
-        # TODO: Write your own find next moving direction logic
-        # direction = [1, 0]
-        super().move(direction)
-
-    @property
-    def _getPosition(self):
-        # TODO: Write a helper method to get the current head position of the snake
-        return None
-
-# Initialize the snake
-snake = MySnake()
-
-# Grow the snake
-snake.grow()
-snake.grow()
-snake.grow()
-snake.grow()
-print(snake)
-
-snake.move([1, 0])
-print(snake)
-
-snake.move([0, 1])
-print(snake)
-
-snake.move([-1, 0])
-print(snake)
-
-snake.move([0, -1])
-print(snake)
-
-snake.move([0, -1])
-print(snake)

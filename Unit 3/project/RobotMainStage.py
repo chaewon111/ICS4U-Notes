@@ -1,8 +1,7 @@
-import pygame, random
-
 import sys
-
-
+import pygame, random
+from snake import Snake
+from MySnakeTemplate import MySnakeTemplate
 
 class Game:
 
@@ -12,11 +11,15 @@ class Game:
     SCREEN_COLOR = (255, 255, 255)  # White
     FONT_SIZE = 30
 
-    def __init__(self, w=800, m=15, n=10, Caption='Battle Grid'):
+    def __init__(self, snakes : list, w : int = 800, m : int = 15, n : int = 10, Caption : str = 'Battle Grid'):
+        """Initialize Game object."""
         # Initialize pygame
         pygame.init()
 
         self.map = [[None for _ in range(m)] for _ in range(n)]
+
+        # Player Initializing
+        self.snakes = snakes
 
         # Screen dimensions
         self.m = m
@@ -33,23 +36,38 @@ class Game:
         self.running = False
 
     def start(self):
-        """Main game loop."""
+        """Start the game."""
         self.clock = pygame.time.Clock()
         self.running = True
 
+        self.update()
+
+    def update(self):
+        """Main game loop."""
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
 
+
+
             self.draw_grid()
             pygame.display.flip()
             self.clock.tick(30)  # Limit to 30 frames per second
+        
+        self.exit()
 
+    def exit(self):
+        """Exit game."""
         pygame.quit()
         sys.exit()
 
     # Main loop
+    def draw_snake(self, snake : Snake): 
+        color = snake.color
+        for body in snake.body_positions:
+            x, y, hp = body
+
     def draw_grid(self):
         """Draw the grid on the screen."""
         self.screen.fill(Game.SCREEN_COLOR)
