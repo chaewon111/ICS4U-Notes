@@ -7,18 +7,12 @@ To use the Template:
 2. Change this class name `MySnakeTemplate` to your own/nick name
 3. Implement the TODO sections
 '''
-class MySnakeTemplate(Snake):
+class MySnakeTemplate2(Snake):
     def __init__(self):
         # TODO: Construct your snake
         # start_x, start_y should be your assigned starting position.
         # length + attack + hp should be added up to a maximum of 10; otherwise, the snake will be disqualified and removed from the game.
-        x, y = (15, 15)
-        color = (255,0,0)
-        name = __name__
-        length = 150
-        atk = 10
-        hp = 20
-        super().__init__(x, y, color, name, length, atk, hp)
+        super().__init__(20, 15, (0,255,0), 'MySnakeTemplate2', 150, 10, 20)
 
     def move(self) -> None:
         # TODO: Write your own find next moving direction logic
@@ -44,37 +38,3 @@ class MySnakeTemplate(Snake):
     def _getPosition(self) -> tuple[int, int]:
         # TODO: Write a helper method to get the current head position of the snake
         return None
-
-
-def main():
-    '''
-    You can write your own testing code here
-    '''
-    # Initialize the snake
-    snake = MySnakeTemplate()
-    print(snake)
-
-    # Grow the snake
-    snake.grow()
-    snake.grow()
-    snake.grow()
-    snake.grow()
-    print(snake)
-
-    snake.move()
-    print(snake)
-
-    snake.move()
-    print(snake)
-
-    snake.move()
-    print(snake)
-
-    snake.move()
-    print(snake)
-
-    snake.move()
-    print(snake)
-
-    snake.move()
-    print(snake)
