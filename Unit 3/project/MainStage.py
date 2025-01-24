@@ -11,11 +11,10 @@ WIDTH, HEIGHT = 800, 600
 
 # Main game loop
 def main():
-    snakes= [ ]
+    snakes = [ ]
     snakes.append(MySnakeTemplate())
 
-    
-    game = Game(snakes, 1000, 100, 60)
+    game = Game(snakes, 800)
     game.start()
 
 if __name__ == "__main__":

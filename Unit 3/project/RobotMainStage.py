@@ -16,24 +16,33 @@ class Game:
         # Initialize pygame
         pygame.init()
 
-        self.map = [[None for _ in range(m)] for _ in range(n)]
+        self.map : list = [[None for _ in range(n)] for _ in range(m)]
 
         # Player Initializing
-        self.snakes = snakes
+        self.snakes : list[Snake] = snakes
 
         # Screen dimensions
-        self.m = m
-        self.n = n
-        self.WIDTH = w
-        self.cell_size = w / m
-        self.HEIGHT = n * self.cell_size
+        self.m : int = m
+        self.n : int = n
+        self.WIDTH : int = w
+        self.cell_size : int = w // m
+        self.HEIGHT : int = n * self.cell_size
 
-        self.screen = pygame.display.set_mode((self.WIDTH, self.HEIGHT))
+        self.screen : pygame.Surface = pygame.display.set_mode((self.WIDTH, self.HEIGHT))
         self.caption = pygame.display.set_caption(Caption)
-        self.font = pygame.font.SysFont(None, Game.FONT_SIZE)
+        self.font : pygame.font.Font = pygame.font.SysFont(None, Game.FONT_SIZE)
 
         self.clock = None
-        self.running = False
+        self.running : bool = False
+
+    def _update_map(self):
+        for snake in self.snakes:
+            color = snake.color
+            for body in snake.body_positions:
+                x, y, hp = body
+                if hp < 1:
+                    break
+                self.map[x][y] = snake
 
     def start(self):
         """Start the game."""
@@ -49,12 +58,20 @@ class Game:
                 if event.type == pygame.QUIT:
                     self.running = False
 
-
-
             self.draw_grid()
+
+            # if len(self.snakes) > 0:
+            #     self.draw_snake(self.snakes[0])
+
+            # for i in range(len(self.snakes)):
+            #     status = self.snakes[i].move()
+            #     if not status:
+            #         print(f'{self.snakes[i].name} is disqualified or dead!')
+            #         self.snakes.pop(i)
+
             pygame.display.flip()
             self.clock.tick(30)  # Limit to 30 frames per second
-        
+
         self.exit()
 
     def exit(self):
@@ -63,10 +80,13 @@ class Game:
         sys.exit()
 
     # Main loop
-    def draw_snake(self, snake : Snake): 
+    def draw_snake(self, snake : Snake):
         color = snake.color
         for body in snake.body_positions:
             x, y, hp = body
+            if hp < 1:
+                break
+            pygame.draw.rect(self.screen, color, (x * self.cell_size, y * self.cell_size, self.cell_size, self.cell_size))
 
     def draw_grid(self):
         """Draw the grid on the screen."""

@@ -12,11 +12,12 @@ class MySnakeTemplate(Snake):
         # TODO: Construct your snake
         # start_x, start_y should be your assigned starting position.
         # length + attack + hp should be added up to a maximum of 10; otherwise, the snake will be disqualified and removed from the game.
-        super().__init__(5, 5, 1, (255,255,255), 'MySnakeTemplate', 1, 1)
+        super().__init__(5, 5, 1, (100,100,100), 'MySnakeTemplate', 1, 1)
 
     def move(self):
         # TODO: Write your own find next moving direction logic
-        direction = [-1, 0]
+        direction = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+        direction = random.choice(direction)
 
         super().move(direction)
 
@@ -41,6 +42,7 @@ def main():
     '''
     # Initialize the snake
     snake = MySnakeTemplate()
+    print(snake)
 
     # Grow the snake
     snake.grow()
@@ -66,5 +68,3 @@ def main():
 
     snake.move()
     print(snake)
-
-main()

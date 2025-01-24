@@ -3,18 +3,18 @@ import random
 
 class Snake:
 
-    SEED = 31415926535897932384
-    ATTRIBUTE_RESTRICTION = 5
-    MATRIX_SIZE = (10, 10)
+    SEED : int = 31415926535897932384
+    ATTRIBUTE_RESTRICTION : int = 5
+    MATRIX_SIZE : tuple[int, int] = (15, 10)
 
     @staticmethod
-    def matrix_size():
+    def matrix_size() -> tuple[int, int]:
         """
         Return the map size as a tuple (m, n).
         """
         return Snake.MATRIX_SIZE
 
-    def __init__(self, start_x : int, start_y : int, length : int, color : tuple[int, int, int], 
+    def __init__(self, start_x : int, start_y : int, length : int, color : tuple[int, int, int],
                  name : str, attack : int, hp : int):
         """
         Initialize the Snake object.
@@ -28,38 +28,43 @@ class Snake:
         random.seed(Snake.SEED)
 
         if length + attack + hp > Snake.ATTRIBUTE_RESTRICTION:
-            self.body_positions = [(None, None, None)]
+            self.body_positions : tuple[int, int, int] = [(None, None, None)]
         else:
-            self.body_positions = [(start_x, start_y, hp)]
-        self.length = length
-        self.color = color
-        self.name = name
-        self.attack = attack
-        self.hp = hp
+            self.body_positions : tuple[int, int, int] = [(start_x, start_y, hp)]
+        self.length : int = length
+        self.color : tuple[int, int, int] = color
+        self.name : str = name
+        self.attack : int = attack
+        self.hp : int = hp
 
-    def detect(self):
+    # You can feel free to override this method.
+    def detect(self) -> None:
         """
-        Do nothing. You could implement your own Detect for your move()
+        Do nothing. Feel Free to override!
+
+        You could implement your own Detect for your move()
         """
         pass
 
-    @property
+    @property # We'll fire you if you override this method.
     def qualification(self) -> bool:
         """
         Check if the snake is qualified to play the game.
 
         :return: True if the snake is qualified, False otherwise.
         """
+        if self.length < 1:
+            return False
         return self.body_positions[0] != (None, None, None)
 
     @final # We'll fire you if you override this method.
-    def move(self, direction : list):
+    def move(self, direction : list) -> bool:
         """
         Move the snake in a specified direction. return False if the snake is disqualified or dead.
 
         :param direction: Tuple (dx, dy) indicating the direction (e.g., (1, 0) for right).
         """
-        if not self.qualification or self.checkDead():
+        if not self.qualification or self.isDead():
             return False
 
         head_x, head_y, hp = self.body_positions[0]
@@ -83,11 +88,11 @@ class Snake:
         # No need to modify body_positions as the tail will naturally grow with subsequent moves
 
     @final # We'll fire you if you override this method.
-    def checkDead(self) -> bool:
+    def isDead(self) -> bool:
         """
         Check if the snake is dead.
         """
-        return self.length < 1
+        return self.length < 1 or self.body_positions[0][2] < 1
 
     @final # We'll fire you if you override this method.
     def check_collision(self) -> bool:
