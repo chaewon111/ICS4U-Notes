@@ -5,7 +5,7 @@ class Snake:
 
     SEED : int = 31415926535897932384
     ATTRIBUTE_RESTRICTION : int = 200
-    MATRIX_SIZE : tuple[int, int] = (40, 30)
+    MATRIX_SIZE : tuple[int, int] = (120, 90)
 
     @staticmethod
     def matrix_size() -> tuple[int, int]:
@@ -115,11 +115,11 @@ class Snake:
 
     @final # We'll fire you if you override this method.
     def check_body(self) -> None:
-        for i in range(1, len(self.body_positions)):
+        for i in range(1, self.length):
             x, y, hp = self.body_positions[i]
             if hp < 1:
                 self.body_positions = self.body_positions[:i]
-                self.length = i
+                self.length = self.length - i
                 break
 
     @final # We'll fire you if you override this method.
