@@ -1,6 +1,4 @@
-import pygame
-import random
-import sys
+
 from SnakeBattleGame import Game
 from snake import Snake
 
