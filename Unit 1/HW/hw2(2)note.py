@@ -10,10 +10,8 @@ for i in range(1,a+1):
     llst.append(lst[j:row*i])
     j=j+row
 
-if b==0:
-    llst.append(lst[-a:])
 
-else:
+if b!=0:
     llst.append(lst[-b:])
 
 print(llst)
