@@ -50,3 +50,49 @@ list[::-1]
 
 변수를 상황에 따라 다르데 만들기
  num2 = random.randint(1, 25) if operator == "/" else random.randint(0, 25)  # 0 방지
+
+
+
+#########################맵 활용법####################
+words = ["hello", "python", "map"]
+lengths = map(len, words)
+print(list(lengths))  
+# 출력: [5, 6, 3]
+
+
+
+numbers = [1, 2, 3, 4, 5]
+str_numbers = map(str, numbers)
+print(list(str_numbers))  
+# 출력: ['1', '2', '3', '4', '5']
+
+
+
+a = [1, 2, 3]
+b = [4, 5, 6]
+
+result = map(lambda x, y: x + y, a, b)
+print(list(result))  
+# 출력: [5, 7, 9]
+
+
+#################################################파일 열기 쓰기
+
+
+minetxt='mine.txt'
+file=open('mine.txt','r')
+minelist=[]
+while True:
+    line = file.readline()
+    if line == "":
+        break
+    else:
+        minelist.append(line.rstrip('\n').split())
+
+
+
+
+with open('sss.txt', 'w') as file1:
+    for row in minelist:   (# 2 디멘션 리스트에서 1번째거 부름)
+        file1.write(' '.join([str(item) for item in row]))   [2번쨰거 부름]
+        file1.write('\n')
