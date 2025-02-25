@@ -1,0 +1,52 @@
+# 가장 긴 행의 길이를 구하기
+max_col = max(len(row) for row in nonRectangularList)
+
+# 각 열의 합을 저장할 리스트
+column_sums = [0] * max_col  #{0,0,0,0,0,00,00,0,}'''
+
+
+
+a = [1, 2, 3]
+b = ['a', 'b', 'c']
+zipped = list(zip(a, b))
+print(zipped[0][0])  # [(1, 'a'), (2, 'b'), (3, 'c')]
+
+
+
+words = ["apple", "banana", "cherry"]
+for i, word in enumerate(words):
+    print(f"{i}: {word}")
+# 출력:
+# 0: apple
+# 1: banana
+# 2: cherry
+
+fruits = ["apple", "banana", "cherry"]
+
+for i, fruit in enumerate(fruits, start=1):  # 인덱스 1부터 시작
+    print(i, fruit)
+
+#1 apple
+#2 banana
+#3 cherry
+
+
+
+
+
+
+nums = [1, 2, 2, 3, 4, 4, 5]
+unique_nums = list(set(nums))
+print(unique_nums)  # [1, 2, 3, 4, 5]
+
+
+
+
+리스트 뒤집기
+list[::-1]
+
+
+
+
+변수를 상황에 따라 다르데 만들기
+ num2 = random.randint(1, 25) if operator == "/" else random.randint(0, 25)  # 0 방지
