@@ -96,3 +96,37 @@ with open('sss.txt', 'w') as file1:
     for row in minelist:   (# 2 디멘션 리스트에서 1번째거 부름)
         file1.write(' '.join([str(item) for item in row]))   [2번쨰거 부름]
         file1.write('\n')
+
+
+################2 DIMENTION LISTT###########################
+
+myData = []
+
+#Size of the two list
+numRows = 5
+numColumns = 3
+
+#Outerloop controls the number of rows
+for i in range(0,numRows):
+
+    #Each row is its own list, start with a blank list
+    row = []
+
+    #Inner loop generates a random number and adds it as a colum to the rows
+    for j in range(0,numColumns):
+        number = random.randint(1,100)
+        row.append(number)
+
+    #A row is full so add it to the 2D list
+    myData.append(row)
+
+
+@@@@@@@Print@@@@@@@@@
+
+for row in myData:
+
+    #The value variable represents a piece of data in each inner list
+    for value in row:
+
+        #Print a data value, separated by spaces
+        print(value,end = " ")
