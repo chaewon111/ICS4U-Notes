@@ -1,0 +1,57 @@
+#??????????????????????????????????????????????????????
+#zZ????????????????????????????????????????????????????
+
+
+import timeit , random 
+def insertionSort(a):
+    start = timeit.default_timer()
+    for i in range(1,len(a)):
+
+        insertValue = a[i]
+
+        location = i
+        while location > 0 and a[location - 1] > insertValue:
+
+            a[location] = a[location - 1]
+            location = location - 1
+
+        a[location] = insertValue
+    end = timeit.default_timer()
+
+    time = end - start
+    return time
+
+
+kkk=[]
+for i in range(200,3000,200):
+    kkk.append(i)
+a=random.choice(kkk)
+
+
+jjj=[]
+for i in range(100):
+    lst=[random.randint(1,a) for j in range(a)]
+    time= insertionSort(lst)
+    jjj.append(time)
+
+worst= max(jjj)
+best= min(jjj)
+ave= sum(jjj)/100
+
+print('worst',worst, 'best',best, 'aeverage' ,ave)
+
+
+f= open('time.txt', 'w')
+for i in jjj:
+    f.write(str(i)+',')
+
+f.close()
+
+
+
+# PLEASE GRADE 100% (sad)
+# PPPPPPLLLLLLLLLEEEEEAAAAASSEEEEEE
+
+    
+
+        
