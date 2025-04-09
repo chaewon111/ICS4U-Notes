@@ -18,9 +18,24 @@ class game:
 
      
 
-    def __str__(self):
-        return f''' player {self.name} point ={self.spin()}{self.roll()}'''
+    def __str__(self,other):
+        print(f'''player {self.name} point ={self.point}
+player {other.name} point={other.point}''')
     
-print(game('yo'))
+
+x= game('x')
+y= game('y')
+
+for i in range(20):
+    x.spin()
+    x.roll()
+    y.spin()
+    y.roll()
+
+x.__str__(y)
+    
+
+    
+
 
 

@@ -4,9 +4,8 @@ import sys
 from SnakeBattleGame import Game
 from snake import Snake
 
-from MySnakeTemplate import MySnakeTemplate
-from MySnakeTemplate2 import MySnakeTemplate2
-from MySnakeTemplate3 import MySnakeTemplate3
+from ChaewonSnakeTemplate import Chaewon
+
 
 # Screen dimensions
 WIDTH, HEIGHT = 800, 600
@@ -16,9 +15,7 @@ WIDTH, HEIGHT = 800, 600
 def main():
     m,n = Snake.matrix_size()
     snakes = [ ]
-    snakes.append(MySnakeTemplate())
-    snakes.append(MySnakeTemplate2())
-    snakes.append(MySnakeTemplate3())
+    snakes.append(Chaewon)
 
     game = Game(snakes, 800, m, n)
     game.start()

@@ -1,0 +1,266 @@
+for j in range(15,51):
+    c= strr.count(str(j))
+    lst.append([j,c])
+
+
+
+
+
+def gcd(a,b):
+    if a == 0:
+        return b
+    else:
+        return gcd(b % a , a)      chedae gongyacksu
+
+
+
+########################################################### 2DIMENSION LIST ####################################################################################
+for i in range(0,len(myData)):
+
+    #Inner Loop Cycle Through each column the specified row
+    for j in range(0,len(myData[i])):
+
+        #Print out data at the [i][j] location separated by spaces
+        print(myData[i][j], end = " ")
+
+
+
+
+for row in myData:
+
+    #The value variable represents a piece of data in each inner list
+    for value in row:
+
+        #Print a data value, separated by spaces
+        print(value,end = " ")
+
+
+
+
+SUM
+for i in range(0,len(myData)):
+
+	#Cycle through each value in each column and add them up
+	rowTotal = 0
+	for j in range(0,len(myData[i])):
+		rowTotal = rowTotal + myData[i][j]
+
+	print(rowTotal)
+
+
+
+
+
+
+myData = []
+
+#Size of the two list
+numRows = 5
+numColumns = 3
+
+#Outerloop controls the number of rows
+for i in range(0,numRows):
+
+    #Each row is its own list, start with a blank list
+    row = []
+
+    #Inner loop generates a random number and adds it as a colum to the rows
+    for j in range(0,numColumns):
+        number = random.randint(1,100)
+        row.append(number)
+
+    #A row is full so add it to the 2D list
+    myData.append(row)
+
+
+
+
+
+
+
+myData = []
+
+#Size of the two list
+numRows = 5
+
+for i in range(0,numRows):
+
+    #Ask for the row of data separated by commas
+    row = input("Enter the Entire Row: ").split(",")
+
+    #Convert all the values in the split list into integers
+    row = list(map(int,row))
+
+    #Add to the 2D list
+    myData.append(row)
+
+
+
+
+def sum(a)
+sum=a +1 
+
+list(map(sum,[1,2,3]))
+ 다 더해진 값나옴 ㅇㅇ
+
+
+
+
+
+-when jiksagakhyeong 
+m=LEN(MY DATA)    << -- OUTSIDE
+n=LEN(MYDATA[0])  <<-- NUM OF INSIDE LIST 
+
+for row in range(m)
+	for col in range(n)
+		if mydata[m][n] == target
+			print(fuck)
+
+
+for row in range(m):
+    currentrow=[]
+    for col in range(n):
+        currentrow.append(0)
+    lst.append(currentrow)
+
+---> [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
+세로만큼 아웃사이드 , 가로만큼 인사이드 인덱스 가짐
+
+==[[0 for i in range(m)] 0 for j in range(n)]  d이거 길이랑 로우 만큼 0 으로 채워진 새 리스트 만드는거임 ㅇ
+
+계속 변하는 미지수.copy()
+
+
+
+
+
+
+lst2=[]
+for r in range(m):
+    currow=[]
+    for c in range(n):
+        if r%2==0 and c%2==0:
+            currow.append(1)
+            
+        elif r%2==1 and c%2==1:
+            currow.append(1)
+        else:
+            currow.append(0)
+    lst2.append(currow)   
+     
+
+##########################################################################################################
+
+
+
+ 
+
+    for i in range(len(cases)):
+        if i +1 in ask:
+            pass
+        else:
+            sum=sum+cases[i]
+
+
+
+
+
+
+
+####################################### 파일 읽기 ###############################################################
+
+
+
+
+
+
+
+#Open the file for reading
+file = open("data.txt","r")
+
+#Make an empty list to store the data
+x = []
+
+
+
+#Read the 10 lines of the file and append to the list
+for i in range(0,10):
+	x.append(file.readline())
+
+#Done reading so close the file
+file.close()
+
+#Print the results of the read to the screen
+print(x)
+
+(file.readline().rstrip("\n"))) <<<<< /엔 돼잇는거 없애줌 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ아 ㅈㄴ웃곀
+
+
+
+
+
+while True:
+    line = file.readline()
+    if line == "":
+        break
+    else:
+        x.append((line.rstrip("\n")))
+빈 게 나오면 그 라인  이끛낫단 뜻이니까 끈냄 ㅇㅇ 와일 룹을 사요애헤서
+인트 넣고 싶ㄹ음7ㄴ  x.append(int(line.rstrip("\n")))
+
+
+
+
+
+
+
+
+
+
+텟트트 파일이 이거일때 :::
+
+Paul 45025.28
+John 238.45
+Tammy 65827.20
+Rachel 45.25
+
+
+file = open("data.txt", "r")
+
+#Lists to store names and bank info
+name = []
+bankAmount = []
+
+#Loop for as much data as is in the file
+while True:
+    line = file.readline()
+    if line == "":
+        break
+    else:
+
+        #Split the line into tokens delimited by blank spaces
+        tokens = line.split(" ")   >>>>>>>>>>>>>>>>>>>>스플ㄽ떔에 리스트 안에 리스트가 생기는 느낌인거임 ㅇㅇㅇ
+
+        #The name is the first token
+        name.append(tokens[0])
+
+        #The bank value is the second token, but it has the \n attached to it
+        bankAmount.append(float(tokens[1].rstrip("\n")))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

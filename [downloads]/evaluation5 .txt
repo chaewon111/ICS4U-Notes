@@ -1,0 +1,105 @@
+SECTION A
+Question 1 - How Self-Driving Cars Will Affect Society & the Environment
+Positive Impacts:
+Fewer Traffic Accidents – Self-driving cars can reduce crashes caused by human mistakes, making roads safer.
+Less Traffic Congestion – Smart AI can optimize traffic flow, reducing delays.
+Better Mobility for Elderly & Disabled People – Those who cannot drive will have more independence.
+Negative Impacts:
+Job Losses – Taxi drivers, truck drivers, and delivery workers may lose jobs.
+Ethical Problems – If a crash is unavoidable, who should the car protect? This is a difficult question.
+More Energy Use – If people use self-driving cars more than public transport, energy demand could rise.
+Lower Emissions (Maybe) – If self-driving cars use electricity efficiently, they could reduce pollution.
+
+Question 2 - Privacy & Data Collection
+Would this be a concern for me?
+Yes. Self-driving cars collect a lot of personal data, like location history and conversations. 
+If this data is hacked or sold, it could be misused. I wouldn’t feel safe if companies or governments could track my movements.
+
+Should courts allow car data in legal cases?
+Yes, but with rules. Data should be used fairly to determine who is at fault.
+If data helps solve legal disputes, it should be allowed, but private info should stay protected.
+Criminal Cases – If the data is crucial for solving crimes (like a hit-and-run), it should be used, but strict laws should prevent misuse.
+
+
+
+
+
+
+
+SECTION B
+Question 1
+1. How is computer vision used in self-driving cars?
+Object Detection – Finds cars, people, traffic lights, and animals on the road.
+Lane Detection – Tracks lane lines to keep the car centered and prevent drifting.
+Traffic Sign Reading – Reads stop signs, speed limits, and other important road signs.
+Obstacle Avoidance – Identifies sudden obstacles like fallen objects or crossing pedestrians and reacts quickly.
+
+2. What is LiDAR and how does it help?
+LiDAR (Light Detection and Ranging) uses lasers to scan the area and create a 3D map.
+It measures distance between the car and objects with high accuracy.
+It works well in low light or fog since it doesn’t rely on regular cameras.
+Helps with precise navigation by detecting road curves, other vehicles, and small obstacles.
+
+3. Does Tesla use LiDAR or Computer Vision? Why?
+Tesla only uses cameras and AI (Computer Vision).
+They say LiDAR is too expensive and unnecessary for full self-driving.
+Tesla’s AI uses neural networks to process camera images, like human vision.
+They believe learning from real-world driving data is the best way to improve.
+
+
+Question 2
+CNNs (Convolutional Neural Networks) – Recognizes objects, pedestrians, and road signs in camera images.
+Reinforcement Learning – Learns from past driving experiences to make smarter decisions.
+Decision Trees – Helps the car choose between options (stop, slow down, change lanes).
+Sensor Fusion – Combines data from cameras, radar, LiDAR (if used), and GPS for better accuracy.
+Path Planning Algorithms – Calculates the best route and avoids obstacles smoothly.
+
+
+Question 3
+Can Generative AI help self-driving cars?
+Simulates different driving situations for better AI training.
+Creates realistic virtual environments to test self-driving software safely.
+Fills in missing data on maps, making navigation more precise.
+Improves in-car voice assistants, making them smarter in conversations.
+
+
+
+
+
+
+SECTION C
+Subjects Needed
+Self-driving car careers require computer science (AI, programming), math (calculus, statistics), 
+physics (motion, sensors), engineering (mechanical, electrical, automotive), robotics (autonomous systems)
+
+Skills Needed
+Key skills include programming (Python, C++), AI & machine learning (neural networks, reinforcement learning),
+math & data analysis (calculus, probability, optimization), path planning, control (safe navigation algorithms),
+cybersecurity (protection from hacking), problem-solving, and teamwork , communication.
+
+Education Level
+A Bachelor’s degree in computer science, engineering, or AI is required.
+A Master’s degree is recommended for advanced AI and robotics roles. 
+A PhD is best for high-level research and innovation in self-driving technology.
+
+
+
+
+
+
+SECTION D
+If a self-driving car gets into an accident, I think the car owner should be responsible, but only if they agreed to the terms when buying the car. 
+The person who designs the car sets the ethical rules in the software, and the owner accepts them when they buy and use the car. 
+Since the owner chooses to use the self-driving system, they should take responsibility for accidents caused by the programmed decisions.
+
+However, if the accident happens because the car does not follow its programmed rules, then the engineers or manufacturers could be responsible. 
+If the software does something unexpected or goes against the agreed programming, the responsibility should shift to the people who designed it. 
+
+This way, responsibility is clear—owners take the risk when they accept the terms, and designers are only blamed if the car fails to act as intended.
+
+
+
+
+
+
+
